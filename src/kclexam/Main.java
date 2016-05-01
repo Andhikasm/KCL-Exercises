@@ -1,78 +1,43 @@
 package kclexam;
-import java.awt.BorderLayout;
-import java.awt.FlowLayout;
-import java.awt.GridLayout;
-import java.util.ArrayList;
-import java.util.List;
 
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JSlider;
-import javax.swing.JTextField;
-import javax.swing.SwingConstants;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
+import java.awt.*;
+
+import javax.swing.*;
+
 
 public class Main extends JFrame{
 	
 	public Main(){
-		super("Mixing Desk");
+		setLayout(new GridLayout());
+		setSize(400, 400);
+		JPanel panel = new JPanel(new FlowLayout());
+		
+		panel.add(new JButton("HELL0"));
+		add(panel);
+		//add(new JButton("CENTEERRRRRRRRRRRRR"), BorderLayout.WEST);
+		//add(new JButton("CENTEERRRRRRRRRRRRR"), BorderLayout.CENTER);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setSize(500, 300);
-		addWidgets();
 	}
 	
-	private void addWidgets(){
-		setLayout(new BorderLayout());
-		
-		add(new JLabel("HELLO"), BorderLayout.NORTH);
-		
-		JPanel jpSlider = new JPanel(new GridLayout(1, 6));
-		
-		for(int i = 0; i < 6; i++){
-			JPanel mixerPanel = new JPanel(new BorderLayout());
-			JPanel mixerLabelPanel = new JPanel(new FlowLayout());
-			JLabel mixerLabel = new JLabel("Mix");
-			JTextField mixerText = new JTextField();
-			mixerText.setEditable(false);
-			
-			mixerLabelPanel.add(mixerLabel);
-			mixerPanel.add(createMixer(mixerText), BorderLayout.CENTER);
-			mixerPanel.add(mixerLabelPanel, BorderLayout.NORTH);
-			mixerPanel.add(mixerText, BorderLayout.SOUTH);
-			jpSlider.add(mixerPanel);
+	private  static class Display{
+		public void display(){
+			System.out.println("Display!");
 		}
-		
-		add(jpSlider, BorderLayout.CENTER);
-
+	};
+	
+	public static class MyDisplay extends Display{
+		public void display(){
+			System.out.println("My Display!");
+		}
 	}
 	
-	private JSlider createMixer(JTextField mixerText){
-		
-		JSlider mixer = new JSlider();
-		mixer.addChangeListener(new ChangeListener() {
-			
-		//THIS IS THE SECOND PART OF THE QUESTION
-			@Override
-			public void stateChanged(ChangeEvent e) {
-				
-				mixerText.setText(Integer.toString(mixer.getValue()));
-			}
-		});
-		
-		mixer.setOrientation(SwingConstants.VERTICAL);
-		mixer.setMajorTickSpacing(10);
-		mixer.setMinimum(0);
-		mixer.setMaximum(100);
-		mixer.setPaintLabels(true);
-		mixer.setPaintTicks(true);
-
-		return mixer;
+	public static void runTest(){
+		System.out.println("Test Running...");
 	}
 	
-	public static void main(String[] args){
+	
+	public static void main(String[] args) {
 		new Main().setVisible(true);
 	}
-	
+
 }
