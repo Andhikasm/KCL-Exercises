@@ -8,13 +8,13 @@ import javax.swing.*;
 public class Main extends JFrame{
 	
 	public Main(){
-		setLayout(new GridLayout());
+		setLayout(new BorderLayout());
 		setSize(400, 400);
-		JPanel panel = new JPanel(new FlowLayout());
-		
-		panel.add(new JButton("HELL0"));
-		add(panel);
-		//add(new JButton("CENTEERRRRRRRRRRRRR"), BorderLayout.WEST);
+		//JPanel panel = new JPanel(new FlowLayout());
+	
+		//panel.add(new JButton("HELL0"));
+		//add(panel);
+		add(new JButton("WESSSSSST"), BorderLayout.CENTER);
 		//add(new JButton("CENTEERRRRRRRRRRRRR"), BorderLayout.CENTER);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
