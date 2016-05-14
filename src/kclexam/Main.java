@@ -1,43 +1,33 @@
 package kclexam;
 
 import java.awt.*;
-
+import java.util.*;
 import javax.swing.*;
 
+public class Main {
 
-public class Main extends JFrame{
-	
-	public Main(){
-		setLayout(new BorderLayout());
-		setSize(400, 400);
-		//JPanel panel = new JPanel(new FlowLayout());
-	
-		//panel.add(new JButton("HELL0"));
-		//add(panel);
-		add(new JButton("WESSSSSST"), BorderLayout.CENTER);
-		//add(new JButton("CENTEERRRRRRRRRRRRR"), BorderLayout.CENTER);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	public static void printResult(int i, int j, Operation o){
+		System.out.println(o.cal(i, j));
 	}
 	
-	private  static class Display{
-		public void display(){
-			System.out.println("Display!");
-		}
-	};
-	
-	public static class MyDisplay extends Display{
-		public void display(){
-			System.out.println("My Display!");
-		}
+	public static void print1(int[] i){
+		i[0] = i[0]+3;
+		System.out.println(i[0]);
 	}
 	
-	public static void runTest(){
-		System.out.println("Test Running...");
+	public static void print2(int i){
+		i = i + 5;
+		System.out.println(i);
 	}
 	
+	public static interface Action{
+		public String perform(String s);
+	}
+	private static void debug(Action a){
+		System.out.println(a.perform("Test"));
+	}
 	
 	public static void main(String[] args) {
-		new Main().setVisible(true);
 	}
 
 }
